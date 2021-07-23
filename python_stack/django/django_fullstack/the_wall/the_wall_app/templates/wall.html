@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_2.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    {% endif %}
+    </ul>
+    <form action="/post_message" method="POST">
+    {% csrf_token%}  
+    <p>Message:</p>
+    <textarea name="content" cols="50" rows="5"></textarea>
+    <br>
+    <button type="submit">Post</button>
+    </form>
+
+    {% for message in all_messages reversed %}
+        <p><a href="/users/{{message.creator.id}}">{{ message.creator.first_name }} {{ message.creator.last_name }}</a> --  {{ message.created_at }} </p>
+        <p>{{ message.content }}</p>
+        {% if message.creator.id == user.id %}
+            <a href="messages/{{message.id}}/edit">Edit</a>
+        {% endif %}
+        {% if message.users_who_liked.all %}
+            {% if user in message.users_who_liked.all %}
+                <a href="/messages/{{message.id}}/unlike">{{message.users_who_liked.count}}</a>
+            {% else %}
+                <a href="/messages/{{message.id}}/like">{{message.users_who_liked.count}}</a>
+            {% endif %}
+        {% else %}
+            <a href="/messages/{{message.id}}/like">{{message.users_who_liked.count}}</a>
+        {% endif %}
+        {% for comment in message.comments.all %}
+            <p> >>><a href="/users/{{comment.creator.id}}">{{ comment.creator.first_name }} {{ comment.creator.last_name }}</a> -- {{ comment.created_at }} </p>
+            <p> >>> {{ comment.content }}</p>
+        {% endfor %}
+        <form action="/messages/{{message.id}}/post_comment" method="POST">
+            {% csrf_token%} 
+            <p>Comment: <textarea name="content" cols="40" rows="1"></textarea></p> 
+            <br>
+            <button type="submit">Comment</button>
+            </form>
+    {% endfor %}
+    <a href="/index">Profile</a>
+    <a href="/logout">Logout</a>
+</body>
+</html>

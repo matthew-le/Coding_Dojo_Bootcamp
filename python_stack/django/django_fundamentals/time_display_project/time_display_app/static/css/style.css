@@ -1,0 +1,22 @@
+div {
+    margin: auto;
+    text-align: center;
+    height: 250px;
+
+}
+
+p {
+    border-style: solid;
+    width: 175px;
+    margin: 25px auto;
+    
+}
+
+h1 {
+    border-style: solid;
+    width: 300px;
+    margin: 25px auto;
+    
+}
+
+

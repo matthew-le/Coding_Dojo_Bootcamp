@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper {
+    width: 970px;
+    margin: auto;
+    background-color: #245076;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #444444;
+    padding: 10px 40px;
+    border-radius: 10px;
+}
+
+#search h3 {
+    background-color: white;
+    padding: 5px 40px;
+    font-size: 10pt;
+}
+
+#search button {
+    background-color: #245076;
+    padding: 5px;
+}
+
+.menu-bar ul{
+    width: 850px;
+    margin: auto;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #477fad;
+    border-radius: 5px;
+    list-style: none;
+}
+.menu-bar a {
+    text-decoration: none;
+    color: white;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 60px;
+
+}
+
+.about ul{ 
+    margin-bottom: 40px;
+}
+.about li {
+    width: 200px;
+    margin: 0px 0px 3px 0px;
+    text-align: center;
+    list-style-type: none;
+    font-size: 10pt;
+}
+
+.about a {
+    color: white;
+}
+.about_python {
+    margin: 0px;
+    text-align: center;
+    flex: 2;
+}
+
+.about_python p {
+    color: white;
+    font-size: 8pt;
+    margin-bottom: 5px;
+}
+
+.about_python h3 {
+    font-size: 10pt;
+    font-style: italic;
+    color: yellow;
+    margin: 0px 0px 8px 0px;
+}
+
+.about_python h4 {
+    margin-bottom: 5px;
+}

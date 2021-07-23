@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Message Page</h1>
+
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    {% endif %}
+    </ul>
+    <form action="/messages/{{message.id}}/update" method="POST">
+    {% csrf_token %}
+        <p>Content: <input type="text" name='content' value='{{message.content}}'></p>
+        <button type='submit'>Edit Message</button>
+    </form>
+    <a href="/wall">Go Back To The Wall</a>
+    <br>
+    <a href="/logout">Logout</a>
+
+    <p>Messages liked by: {{user.first_name}} {{user.last_name}}</p>
+    {% for message in user.messages_user_liked.all %}
+        <p>{{message.created_at}} -- {{message.content}}</p>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
+</head>
+<body>
+    <h1>Hello {{ user.first_name }}! Make a wish!</h1>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    {% endif %}
+    </ul>
+    <form action="/wishes/make_wish" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name='granted' value='False'>
+    <label> I wish for: <input type="text" name='item'></label>
+    <label> Description: <input type="text" name='desc'></label>
+    <button type="reset"><a href="/wishes">Cancel</a></button>
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

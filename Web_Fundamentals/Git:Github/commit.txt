@@ -1,0 +1,71 @@
+Last login: Thu May 27 20:19:23 on ttys009
+Matt@Matthews-MBP-2 ~ % ls
+Applications			Music
+Creative Cloud Files		My_Notebook.ipynb
+Desktop				Pencil #1.epgz
+Documents			Pictures
+Downloads			Public
+Dropbox				RSS Feed #1
+Le_Matthew_VS_Assignment_1.html	RSSFeedExcelPractice
+Library				http:
+Movies
+Matt@Matthews-MBP-2 ~ % mkdir gittest
+Matt@Matthews-MBP-2 ~ % ls
+Applications			Music
+Creative Cloud Files		My_Notebook.ipynb
+Desktop				Pencil #1.epgz
+Documents			Pictures
+Downloads			Public
+Dropbox				RSS Feed #1
+Le_Matthew_VS_Assignment_1.html	RSSFeedExcelPractice
+Library				gittest
+Movies				http:
+Matt@Matthews-MBP-2 ~ % cd gittest
+Matt@Matthews-MBP-2 gittest % git init
+Initialized empty Git repository in /Users/Matt/gittest/.git/
+Matt@Matthews-MBP-2 gittest % touch index.html
+Matt@Matthews-MBP-2 gittest % touch styles.css
+Matt@Matthews-MBP-2 gittest % touch aboutMe.txt
+Matt@Matthews-MBP-2 gittest % git add .
+Matt@Matthews-MBP-2 gittest % git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   aboutMe.txt
+	new file:   index.html
+	new file:   styles.css
+
+Matt@Matthews-MBP-2 gittest % git commit -m 'initial commit'
+[master (root-commit) 5c5427d] initial commit
+ Committer: Matt <Matt@Matthews-MBP-2.lan>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 aboutMe.txt
+ create mode 100644 index.html
+ create mode 100644 styles.css
+Matt@Matthews-MBP-2 gittest % sudo vim aboutMe.txt
+Password:
+Sorry, try again.
+Password:
+Matt@Matthews-MBP-2 gittest % git add .
+Matt@Matthews-MBP-2 gittest % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   aboutMe.txt
+
+Matt@Matthews-MBP-2 gittest % git commit -m 'updated aboutMe'

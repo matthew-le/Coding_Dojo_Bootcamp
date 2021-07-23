@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>My Registration Form</h1>
+    <form action="register">
+        
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name">
+       
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name">
+       
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <label for="pw_confirm">Password Confirmation:</label>
+        <input type="password" id="pw_confirm" name="password_confirmation">
+
+        <p>Birthday</p>
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="date_of_birth">
+       
+        <p>Select your gender:</p>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+       
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female">
+        
+        <label for="decline">Prefer not to say</label>
+        <input type="radio" id="decline" name="gender" value="decline">
+       
+        <p>A short description about yourself:</p>
+        <textarea name="description"></textarea>
+
+        <p>Favorite Language</p>
+        <select name="favorite language">
+            <option value="javascript">Javascript</option>
+            <option value="python">Python</option>
+            <option value="c#">C#</option>
+            <option value="other">Other</option>
+        </select>
+        
+       <input type="submit" value="Submit">
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{user.first_name}}!</h1>
+    <a href="/logout">Logout</a>
+    <br>
+    <a href="/wishes/new">Make a wish!</a>
+    <br>
+    <a href="/wishes/stats">View stats</a>
+
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    {% endif %}
+    </ul>
+    <h4>Your wish list:</h4>
+    <table id='pending_wishes'>
+        <tr>
+            <th>Item</th>
+            <th>Date added</th>
+            <th>Actions</th>
+        </tr>
+        {% for wish in wishes reversed %}
+        {% if wish.creator.id == user.id %}
+        <tr>
+            <td> {{ wish.item }}</td>
+            <td> {{ wish.created_at }}</td>
+            <td>  <a href="/wishes/{{wish.id}}/delete">Remove</a> <a href="/wishes/{{wish.id}}/edit">Edit</a> <a href="/wishes/{{wish.id}}/granted">Granted!</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    <h4>Granted wishes:</h4>
+    <table id='granted_wishes'>
+        <tr>
+            <th>Item</th>
+            <th>Wisher</th>
+            <th>Date added</th>
+            <th>Date Granted</th>
+            <th>Likes</th>
+            <th>Actions</th>
+        </tr>
+        {% for wish in granted_wishes reversed %}
+        <tr>
+            <td> {{ wish.item }}</td>
+            <td> {{ wish.creator.first_name }} {{ wish.creator.last_name }}</td>
+            <td> {{ wish.created_at }}</td>
+            <td> {{ wish.updated_at }}</td>
+            <td> {{ wish.users_who_liked.count }}</td>                
+            <td> 
+                {% if wish.creator.id != user.id %}
+                    {% if wish.users_who_liked.all %}
+                        {% if user in wish.users_who_liked.all %}
+                        <a href="/wishes/{{wish.id}}/unlike">Like</a>
+                    {% else %}
+                        <a href="/wishes/{{wish.id}}/like">Like</a>
+                    {% endif %}
+                    {% else %}
+                    <a href="/wishes/{{wish.id}}/like">Like</a>
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td><a href="/wishes/{{wish.id}}/delete">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+</body>
+</html>

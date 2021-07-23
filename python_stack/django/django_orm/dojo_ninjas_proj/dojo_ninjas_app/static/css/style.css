@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    margin: 0 auto;
+    width: 970px;
+}
+
+#forms_box {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: grey;
+}
+
+.forms {
+    width: 400px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+
+#results {
+    list-style-position: inside;
+    text-align: center;
+}
+
+

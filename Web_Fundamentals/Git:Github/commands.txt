@@ -1,0 +1,36 @@
+Last login: Thu May 13 20:21:41 on ttys002
+Matt@Matthews-MBP-2 ~ % pwd
+/Users/Matt
+Matt@Matthews-MBP-2 ~ % ls
+Applications			Music
+Creative Cloud Files		My_Notebook.ipynb
+Desktop				Pencil #1.epgz
+Documents			Pictures
+Downloads			Public
+Dropbox				RSS Feed #1
+Le_Matthew_VS_Assignment_1.html	RSSFeedExcelPractice
+Library				http:
+Movies
+Matt@Matthews-MBP-2 ~ % cd Desktop
+Matt@Matthews-MBP-2 Desktop % mkdir Test
+Matt@Matthews-MBP-2 Desktop % cd Test
+Matt@Matthews-MBP-2 Test % touch index.html
+Matt@Matthews-MBP-2 Test % ls
+index.html
+Matt@Matthews-MBP-2 Test % touch styles.css
+Matt@Matthews-MBP-2 Test % ls
+index.html	styles.css
+Matt@Matthews-MBP-2 Test % cp index.html index_2.html
+Matt@Matthews-MBP-2 Test % ls
+index.html	index_2.html	styles.css
+Matt@Matthews-MBP-2 Test % cd ..
+Matt@Matthews-MBP-2 Desktop % mkdir destination
+Matt@Matthews-MBP-2 Desktop % cp test/index_2.html destination/index_2.html
+Matt@Matthews-MBP-2 Desktop % ls destination
+index_2.html
+Matt@Matthews-MBP-2 Desktop % ls test
+index.html	index_2.html	styles.css
+Matt@Matthews-MBP-2 Desktop % rm test/styles.css
+Matt@Matthews-MBP-2 Desktop % ls test
+index.html	index_2.html
+Matt@Matthews-MBP-2 Desktop % rm -rf directory

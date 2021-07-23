@@ -1,0 +1,14 @@
+Create a new repository on GitHub
+Launch GitBash
+    cd Desktop
+    mkdir basic_repo
+    touch index.html
+    touch style.css
+    git init
+    git add .
+    git commit -m 'first commit'
+    git remote add origin https://github.com/matthew-le/basic_repo.git
+    git push -u origin master
+    git add .
+    git commit -m 'changes'
+    git push -u origin master
